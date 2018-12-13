@@ -14,6 +14,9 @@ public class ChestScript : MonoBehaviour {
 	// ref to script on player
 	public PickupTrackerScript pickupTrackerScript;
 
+	// track if chest has already been opened
+	private bool hasOpened = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -31,12 +34,27 @@ public class ChestScript : MonoBehaviour {
 
 			//check if player is in posession of key
 			// other.gameObject.GetComponent<PickupTrackerScript>().chestKey == true
-			if(pickupTrackerScript.chestKey == true) {
+			if(pickupTrackerScript.chestKey && !hasOpened) {
 				Debug.Log("can open chest");
-			}
 
-			// grab the top of the chest and play the animation
-			chestTop.GetComponent<Animation>().Play("OpenChest");
+				messageText.text = "You open the chest.";
+				Invoke("RemoveText", 5f);
+
+				// grab the top of the chest and play the animation
+				chestTop.GetComponent<Animation>().Play("OpenChest");
+
+				// change variable so that it can not occur again
+				hasOpened = true;
+			}
+			else if(!pickupTrackerScript.chestKey) {
+				Debug.Log("cannot open chest");
+				messageText.text = "It seems you need a key to open this chest...";
+				Invoke("RemoveText", 5f);
+			}
 		}
 	}
+
+    void RemoveText() {
+        messageText.text = "";
+    }
 }

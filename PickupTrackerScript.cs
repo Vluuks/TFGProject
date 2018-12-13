@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 /*
 	Script attached to the player that tracks how many and what
@@ -8,6 +10,8 @@ using UnityEngine;
 	with the respective items from those scripts.
  */
 public class PickupTrackerScript : MonoBehaviour {
+
+	public Text scoreText;
 
 	// for each level track the things that the player has picked up
 	public int coinCounter;
@@ -32,6 +36,7 @@ public class PickupTrackerScript : MonoBehaviour {
 		Debug.Log("tracker called");
 		coinCounter++;
 		Debug.Log(coinCounter);
+		scoreText.text = coinCounter.ToString();
 	}
 
 	public void UpdateGemCounter() {

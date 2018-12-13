@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class PickUpManagerList : MonoBehaviour {
 
+    // reference to game text object
+    public Text wishText;
+
+    // reference to script that manages pickups globally
     public PickupTrackerScript pickupTrackerScript;
 
     // List of wishes
@@ -22,9 +26,6 @@ public class PickUpManagerList : MonoBehaviour {
         "I want ...."
     };
 
-
-    // Reference to game text object
-    public Text wishText;
 
     // Init empty
     private void Start() {
@@ -61,8 +62,7 @@ public class PickUpManagerList : MonoBehaviour {
     /*
         Reset text.
      */
-    void RemoveText()
-    {
+    void RemoveText() {
         wishText.text = "";
     }
 
