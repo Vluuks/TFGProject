@@ -25,9 +25,16 @@ public class KeyScript : MonoBehaviour {
 		if (other.gameObject.CompareTag("Player")) {
 			Debug.Log("player touches key");
 
+			messageText.text = "You pick up the key.";
+			Invoke("RemoveText", 5f);
+
 			// set key state to true and remove key
 			pickupTrackerScript.UpdateChestKeyState();
 			Destroy(gameObject);
 		}
 	}
+
+	void RemoveText() {
+        messageText.text = "";
+    }
 }
