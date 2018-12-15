@@ -14,17 +14,22 @@ public class PickupTrackerScript : MonoBehaviour {
 	public Text scoreText;
 
 	// for each level track the things that the player has picked up
+	public int coinsInThisLevel = 12;
 	public int coinCounter;
-	public int gemCounter;
+	private int wishIndex;
+	
 	public bool levelExitKey;
 	public bool chestKey;
 
 	// Use this for initialization
 	void Start () {
+
+		wishIndex = 0;
 		coinCounter = 0;
-		gemCounter = 0;
 		levelExitKey = false;
 		chestKey = false;
+
+		scoreText.text = coinCounter.ToString() + "/" + coinsInThisLevel;
 	}
 	
 	// Update is called once per frame
@@ -33,27 +38,24 @@ public class PickupTrackerScript : MonoBehaviour {
 	}
 
 	public void UpdateCoinCount() {
-		Debug.Log("tracker called");
 		coinCounter++;
-		Debug.Log(coinCounter);
-		scoreText.text = coinCounter.ToString();
-	}
+		wishIndex++;
+		Debug.Log(wishIndex);
 
-	public void UpdateGemCounter() {
-		Debug.Log("tracker called");
-		gemCounter++;
+		scoreText.text = coinCounter.ToString() + "/" + coinsInThisLevel;
 	}
 
 	public void UpdateLevelKeyState() {
-		Debug.Log("tracker called");
 		levelExitKey = true;
 	}
 
 	public void UpdateChestKeyState() {
-		Debug.Log("tracker called");
 		chestKey = true;
 	}
 
+	public int GetWishIndex() {
+		return wishIndex;
+	}
 
 	
 }

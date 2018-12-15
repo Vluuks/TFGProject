@@ -11,48 +11,41 @@ public class PickUpManagerList : MonoBehaviour {
 
     // reference to script that manages pickups globally
     public PickupTrackerScript pickupTrackerScript;
-
+    
     // List of wishes
-    List<string> list = new List<string>()
-    {
+    private List<string> list = new List<string>() {
         "I want world peace",
         "I want my daughter to recover from her illness",
         "I want my mother to find happiness again",
-        "I want ....",
-        "I want ....",
-        "I want ....",
-        "I want ....",
-        "I want ....",
-        "I want ...."
+        "I want 4",
+        "I want 5",
+        "I want 6",
+        "I want 7",
+        "I want 8",
+        "I want 9",
+        "I want 10",
+        "I want 11",
+        "I want 12"
     };
-
 
     // Init empty
     private void Start() {
-        wishText.text = "test test";
+        wishText.text = "Find all the wishing well coins!";
+        Invoke("RemoveText", 5f);
     }
 
     /*
         If it collides with player, select a text from the pool and then show it.
         TODO: check for level.
      */
-    void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerEnter(Collider other) {
 
-        Debug.Log("collision with coin");
-        if (other.gameObject.CompareTag("Player"))
-        {
+        if (other.gameObject.CompareTag("Player")) {
+            
             gameObject.SetActive(false);
-            Debug.Log("isplayer");
 
-            // Obtan wish from list & show
-            int wishIndex = randListIndex();
-            wishText.text = list[wishIndex];
+            wishText.text = list[pickupTrackerScript.GetWishIndex()];
             Invoke("RemoveText", 5f);
-
-            // Can now be removed
-            list.RemoveAt(wishIndex);
-            Debug.Log(list.Count);
 
             pickupTrackerScript.UpdateCoinCount();
         }
