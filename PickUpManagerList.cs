@@ -16,6 +16,8 @@ public class PickUpManagerList : MonoBehaviour {
     
     // List of wishes
     private List<string> list = new List<string>() {
+
+        // Renske
         "I want world peace",
         "I want my daughter to recover from her illness",
         "I want my mother to find happiness again",
@@ -28,6 +30,8 @@ public class PickUpManagerList : MonoBehaviour {
         "I want my epilepsy to go away",
         "I want to always wake up refreshed",
         "I want to be skinny again",
+
+        // Manon
         "I want the ability to shapeshift",
         "I want all pets to have a home",
         "I want new shoes",
@@ -38,6 +42,8 @@ public class PickUpManagerList : MonoBehaviour {
         "I want to be able to talk to my pets",
         "I want everyone to be a good person",
         "I want a long fulfilling life",
+
+        // Yiangos
         "I want my crush to like me back",
         "I want a cure for Alzheimer's",
         "I want to find my soulmate",
