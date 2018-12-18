@@ -30,14 +30,13 @@ public class KeyScript : MonoBehaviour {
 
             // set key state to true and remove key
             // exit door key
-            if (gameObject.CompareTag("exitKey"))
-            {
+            if (gameObject.CompareTag("exitKey")) {
                 pickupTrackerScript.UpdateLevelKeyState();
             }
             // chest key
             else
             {
-                Debug.Log("get key");
+                Debug.Log("get regular key");
                 pickupTrackerScript.UpdateChestKeyState();
             }
 			Destroy(gameObject);

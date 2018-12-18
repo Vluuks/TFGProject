@@ -10,6 +10,7 @@ public class PickUpManagerList : MonoBehaviour {
     public Text wishText;
     public AudioClip sound;
     public AudioSource src;
+    public int startIndex; // 13 or 0
 
     // reference to script that manages pickups globally
     public PickupTrackerScript pickupTrackerScript;
@@ -23,9 +24,9 @@ public class PickUpManagerList : MonoBehaviour {
         "I want my mother to find happiness again",
         "I want eternal youth",
         "I want a home of my own",
-        "I want want super powers",
-        "I want want to live happily",
-        "I want want unlimited funding for education",
+        "I want super powers",
+        "I want to live happily",
+        "I want unlimited funding for education",
         "I want my dog to live as long as I do",
         "I want my epilepsy to go away",
         "I want to always wake up refreshed",
@@ -73,13 +74,13 @@ public class PickUpManagerList : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
 
         if (other.gameObject.CompareTag("Player")) {
-            
-            
-            src.Play();
-            
-            
 
-            wishText.text = list[pickupTrackerScript.GetWishIndex()];
+            Debug.Log("Should play audio now");
+
+            //src.Play();
+            AudioSource.PlayClipAtPoint(sound, transform.position);
+
+            wishText.text = list[startIndex + pickupTrackerScript.GetWishIndex()];
             Invoke("RemoveText", 5f);
 
             pickupTrackerScript.UpdateCoinCount();

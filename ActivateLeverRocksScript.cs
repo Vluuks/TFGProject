@@ -10,6 +10,7 @@ public class ActivateLeverRocksScript : MonoBehaviour {
     public Text messageText;
     public bool switched;
     public GameObject plane;
+    public GameObject plane2;
 
     Animator leverAnim;
 
@@ -28,6 +29,7 @@ public class ActivateLeverRocksScript : MonoBehaviour {
                 leverAnim.SetTrigger("switch");
                 StartCoroutine(WaitForAnimation());
                 Destroy(plane);
+                Destroy(plane2);
 
             }
         }

@@ -8,4 +8,8 @@ public class StartGameScript : MonoBehaviour {
 	public void LoadByIndex(int sceneIndex) {
 		SceneManager.LoadScene(sceneIndex);
 	}
+
+	public void QuitGame() {
+		Application.Quit();
+	}
 }

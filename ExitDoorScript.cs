@@ -36,7 +36,7 @@ public class ExitDoorScript : MonoBehaviour {
 
 
 				// go to next level
-				SceneManager.LoadScene(2);
+				SceneManager.LoadScene(3);
 				
 			}
 			else {
